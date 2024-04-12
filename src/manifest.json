@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "ZBST - REACT TOOLS",
+  "version": "1.0",
+  "description": "A browser extension for monitoring React Based applications",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "scripting",
+    "webRequest",
+    "webRequestBlocking",
+    "webNavigation",
+    "serviceWorker",
+    "contextMenus",
+    "notifications",
+    "fileSystemProvider",
+    "clipboardRead",
+    "clipboardWrite"
+  ],
+  "background": {
+    "service_worker": "dist/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["dist/hook.js"]
+    }
+  ],
+  "devtools_page": "dist/devtools.html",
+  "web_accessible_resources": [
+    {
+      "resources": ["dist/devtools.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
